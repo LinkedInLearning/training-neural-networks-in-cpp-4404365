@@ -8,7 +8,8 @@
                 "-fdiagnostics-color=always",
                 "-g",
                 "-std=c++17",
-                "${fileDirname}/*.cpp",
+                "${fileDirname}/MLP.cpp",
+                "${fileDirname}/${fileBasename}",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}"
             ],
