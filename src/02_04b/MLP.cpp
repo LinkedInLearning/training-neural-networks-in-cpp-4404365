@@ -11,6 +11,6 @@ Perceptron::Perceptron(int inputs, double bias){
 }
 
 // Run the perceptron. x is a vector with the input values.
-double Perceptron::run(vector<double> x){
-	
+double Perceptron::run(std::vector<double> x){
+	return 0.0;
 }
