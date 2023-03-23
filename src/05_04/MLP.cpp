@@ -40,7 +40,7 @@ MultiLayerPerceptron::MultiLayerPerceptron(std::vector<size_t> layers, double bi
         values.push_back(std::vector<double>(layers[i],0.0));
         d.push_back(std::vector<double>(layers[i],0.0));
         network.push_back(std::vector<Perceptron>());
-        if (i > 0)   //network[0] is the input layer,so it has no neurons
+        if (i > 0)   // network[0] is the input layer, so it has no neurons
             for (size_t j = 0; j < layers[i]; j++)
                 network[i].push_back(Perceptron(layers[i-1], bias));
     }
@@ -111,7 +111,7 @@ double MultiLayerPerceptron::bp(std::vector<double> x, std::vector<double> y){
         for (size_t j = 0; j < layers[i]; j++)
             for (size_t k = 0; k < layers[i-1]+1; k++){
                 double delta;
-                if (k==layers[i-1])
+                if (k == layers[i-1])
                     delta = eta * d[i][j] * bias;
                 else
                     delta = eta * d[i][j] * values[i-1][k];
