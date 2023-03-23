@@ -6,7 +6,7 @@ double frand(){
 
 
 // Return a new Perceptron object with the specified number of inputs (+1 for the bias).
-Perceptron::Perceptron(int inputs, double bias){
+Perceptron::Perceptron(size_t inputs, double bias){
 	this->bias = bias;
 	weights.resize(inputs+1);
 	generate(weights.begin(),weights.end(),frand);
@@ -31,7 +31,7 @@ double Perceptron::sigmoid(double x){
 
 
 // Return a new MultiLayerPerceptron object with the specified parameters.
-MultiLayerPerceptron::MultiLayerPerceptron(std::vector<int> layers, double bias, double eta) {
+MultiLayerPerceptron::MultiLayerPerceptron(std::vector<size_t> layers, double bias, double eta) {
     this->layers = layers;
     this->bias = bias;
     this->eta = eta;

@@ -6,7 +6,7 @@ double frand(){
 
 
 // Return a new Perceptron object with the specified number of inputs (+1 for the bias).
-Perceptron::Perceptron(int inputs, double bias){
+Perceptron::Perceptron(size_t inputs, double bias){
 	this->bias = bias;
 	weights.resize(inputs+1);
 	generate(weights.begin(),weights.end(),frand);
@@ -31,16 +31,16 @@ double Perceptron::sigmoid(double x){
 
 
 // Return a new MultiLayerPerceptron object with the specified parameters.
-MultiLayerPerceptron::MultiLayerPerceptron(std::vector<int> layers, double bias, double eta) {
+MultiLayerPerceptron::MultiLayerPerceptron(std::vector<size_t> layers, double bias, double eta) {
     this->layers = layers;
     this->bias = bias;
     this->eta = eta;
 
-    for (int i = 0; i < layers.size(); i++){
+    for (size_t i = 0; i < layers.size(); i++){
         values.push_back(std::vector<double>(layers[i],0.0));
         network.push_back(std::vector<Perceptron>());
         if (i > 0)   //network[0] is the input layer, so it has no neurons
-            for (int j = 0; j < layers[i]; j++)
+            for (size_t j = 0; j < layers[i]; j++)
                 network[i].push_back(Perceptron(layers[i-1], bias));
     }
 }

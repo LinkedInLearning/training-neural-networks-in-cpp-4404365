@@ -6,7 +6,7 @@ double frand(){
 
 
 // Return a new Perceptron object with the specified number of inputs (+1 for the bias).
-Perceptron::Perceptron(int inputs, double bias){
+Perceptron::Perceptron(size_t inputs, double bias){
 	this->bias = bias;
 	weights.resize(inputs+1);
 	generate(weights.begin(),weights.end(),frand);
@@ -31,17 +31,17 @@ double Perceptron::sigmoid(double x){
 
 
 // Return a new MultiLayerPerceptron object with the specified parameters.
-MultiLayerPerceptron::MultiLayerPerceptron(std::vector<int> layers, double bias, double eta) {
+MultiLayerPerceptron::MultiLayerPerceptron(std::vector<size_t> layers, double bias, double eta) {
     this->layers = layers;
     this->bias = bias;
     this->eta = eta;
 
-    for (int i = 0; i < layers.size(); i++){
+    for (size_t i = 0; i < layers.size(); i++){
         values.push_back(std::vector<double>(layers[i],0.0));
         d.push_back(std::vector<double>(layers[i],0.0));
         network.push_back(std::vector<Perceptron>());
         if (i > 0)   //network[0] is the input layer,so it has no neurons
-            for (int j = 0; j < layers[i]; j++)
+            for (size_t j = 0; j < layers[i]; j++)
                 network[i].push_back(Perceptron(layers[i-1], bias));
     }
 }
@@ -49,18 +49,18 @@ MultiLayerPerceptron::MultiLayerPerceptron(std::vector<int> layers, double bias,
 
 // Set the weights. w_init is a vector of vectors of vectors with the weights for all but the input layer.
 void MultiLayerPerceptron::set_weights(std::vector<std::vector<std::vector<double> > > w_init) {
-    for (int i = 0; i< w_init.size(); i++)
-        for (int j = 0; j < w_init[i].size(); j++)
+    for (size_t i = 0; i < w_init.size(); i++)
+        for (size_t j = 0; j < w_init[i].size(); j++)
             network[i+1][j].set_weights(w_init[i][j]);
 }
 
 void MultiLayerPerceptron::print_weights() {
     std::cout << std::endl;
-    for (int i = 1; i < network.size(); i++){
-        for (int j = 0; j < layers[i]; j++) {
+    for (size_t i = 1; i < network.size(); i++){
+        for (size_t j = 0; j < layers[i]; j++) {
             std::cout << "Layer " << i+1 << " Neuron " << j << ": ";
             for (auto &it: network[i][j].weights)
-                std::cout << it <<"   ";
+                std::cout << it << "   ";
             std::cout << std::endl;
         }
     }
@@ -70,8 +70,8 @@ void MultiLayerPerceptron::print_weights() {
 // Feed a sample x into the MultiLayer Perceptron.
 std::vector<double> MultiLayerPerceptron::run(std::vector<double> x) {
     values[0] = x;
-    for (int i = 1; i < network.size(); i++)
-        for (int j = 0; j < layers[i]; j++)
+    for (size_t i = 1; i < network.size(); i++)
+        for (size_t j = 0; j < layers[i]; j++)
             values[i][j] = network[i][j].run(values[i-1]);
     return values.back();
 }
@@ -87,29 +87,29 @@ double MultiLayerPerceptron::bp(std::vector<double> x, std::vector<double> y){
     // STEP 2: Calculate the MSE
     double MSE = 0.0;
     std::vector<double> error;
-    for (int i = 0; i < y.size(); i++){
+    for (size_t i = 0; i < y.size(); i++){
         error.push_back(y[i] - outputs[i]);
         MSE += error[i] * error[i];
     }
     MSE /= layers.back();
 
     // STEP 3: Calculate the output error terms
-    for (int i = 0; i < outputs.size(); i++)
+    for (size_t i = 0; i < outputs.size(); i++)
         d.back()[i] = outputs[i] * (1 - outputs[i]) * (error[i]);
 
     // STEP 4: Calculate the error term of each unit on each layer    
-    for (int i = network.size()-2; i > 0; i--)
-        for (int h = 0; h < network[i].size(); h++){
+    for (size_t i = network.size()-2; i > 0; i--)
+        for (size_t h = 0; h < network[i].size(); h++){
             double fwd_error = 0.0;
-            for (int k = 0; k < layers[i+1]; k++)
+            for (size_t k = 0; k < layers[i+1]; k++)
                 fwd_error += network[i+1][k].weights[h] * d[i+1][k];
             d[i][h] = values[i][h] * (1-values[i][h]) * fwd_error;
         }
     
     // STEPS 5 & 6: Calculate the deltas and update the weights
-    for (int i = 1; i < network.size(); i++)
-        for (int j = 0; j < layers[i]; j++)
-            for (int k = 0; k < layers[i-1]+1; k++){
+    for (size_t i = 1; i < network.size(); i++)
+        for (size_t j = 0; j < layers[i]; j++)
+            for (size_t k = 0; k < layers[i-1]+1; k++){
                 double delta;
                 if (k==layers[i-1])
                     delta = eta * d[i][j] * bias;

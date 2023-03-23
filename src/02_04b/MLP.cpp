@@ -6,7 +6,7 @@ double frand(){
 
 
 // Return a new Perceptron object with the specified number of inputs (+1 for the bias).
-Perceptron::Perceptron(int inputs, double bias){
+Perceptron::Perceptron(size_t inputs, double bias){
 
 }
 
