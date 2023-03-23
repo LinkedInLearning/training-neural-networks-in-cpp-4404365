@@ -7,7 +7,7 @@
 #include <cmath>
 #include <time.h>
 
-class Perceptron {
+class Perceptron{
 	public: 
 		std::vector<double> weights;
 		double bias;
@@ -17,7 +17,7 @@ class Perceptron {
 		double sigmoid(double x);
 };
 
-class MultiLayerPerceptron {
+class MultiLayerPerceptron{
 	public: 
 		MultiLayerPerceptron(std::vector<size_t> layers, double bias=1.0, double eta = 0.5);
 		void set_weights(std::vector<std::vector<std::vector<double> > > w_init);
@@ -32,4 +32,3 @@ class MultiLayerPerceptron {
 		std::vector<std::vector<double> > values;
 		std::vector<std::vector<double> > d;
 };
-
