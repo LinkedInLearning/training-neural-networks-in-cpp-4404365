@@ -9,10 +9,10 @@ int main(){
     std::cout << "\n\n--------Logic Gate Example----------------\n\n";
     Perceptron p(2);
 
-    //{10,10,-15} #AND
-    //{15,15,-10}  #OR
-    //{-15,-15,10}  #NOR
-    //{-10,-10,15} #NAND
+    // AND:  {10,10,-15}
+    // OR:   {15,15,-10}
+    // NOR:  {-15,-15,10}
+    // NAND: {-10,-10,15}
 
     p.set_weights({15,15,-10});
 
@@ -23,9 +23,9 @@ int main(){
     std::cout << p.run({1,1}) << std::endl;
 
     std::cout << "\n\n--------Hardcoded XOR Example----------------\n\n";
-    MultiLayerPerceptron mlp = MultiLayerPerceptron({2,2,1});  //mlp
+    MultiLayerPerceptron mlp({2,2,1});
     mlp.set_weights({{{-10,-10,15},{15,15,-10}}, {{10,10,-15}}});
-    std::cout << "Hard-coded weights:" << std::endl;
+    std::cout << "Hardcoded weights:" << std::endl;
     mlp.print_weights();
 
     std::cout << "XOR:" << std::endl;
@@ -51,7 +51,7 @@ int main(){
             std::cout << "MSE = " << MSE << std::endl;
     }
 
-    std::cout << "\n\nTrained weights (Compare to hard-coded weights):\n\n";
+    std::cout << "\n\nTrained weights (Compare to hardcoded weights):\n\n";
     mlp.print_weights();
 
     std::cout << "XOR:" << std::endl;

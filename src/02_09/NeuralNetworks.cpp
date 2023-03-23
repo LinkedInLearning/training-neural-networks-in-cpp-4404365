@@ -9,8 +9,8 @@ int main(){
     std::cout << "\n\n--------Logic Gate Example----------------\n\n";
     Perceptron p(2);
 
-    //{10,10,-15} #AND
-    //{15,15,-10}  #OR
+    // AND: {10,10,-15} 
+    // OR:  {15,15,-10} 
 
     p.set_weights({15,15,-10});
 
