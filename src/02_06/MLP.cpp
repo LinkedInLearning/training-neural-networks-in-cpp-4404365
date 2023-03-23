@@ -13,14 +13,14 @@ Perceptron::Perceptron(int inputs, double bias){
 }
 
 // Run the perceptron. x is a vector with the input values.
-double Perceptron::run(vector<double> x){
+double Perceptron::run(std::vector<double> x){
 	x.push_back(bias);
 	double sum = inner_product(x.begin(),x.end(),weights.begin(),(double)0.0);
 	return sigmoid(sum);
 }
 
 // Set the weights. w_init is a vector with the weights.
-void Perceptron::set_weights(vector<double> w_init){
+void Perceptron::set_weights(std::vector<double> w_init){
 	weights = w_init;
 }
 

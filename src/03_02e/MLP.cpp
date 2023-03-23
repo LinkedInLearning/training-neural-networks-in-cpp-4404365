@@ -13,14 +13,14 @@ Perceptron::Perceptron(int inputs, double bias){
 }
 
 // Run the perceptron. x is a vector with the input values.
-double Perceptron::run(vector<double> x){
+double Perceptron::run(std::vector<double> x){
 	x.push_back(bias);
 	double sum = inner_product(x.begin(),x.end(),weights.begin(),(double)0.0);
 	return sigmoid(sum);
 }
 
 // Set the weights. w_init is a vector with the weights.
-void Perceptron::set_weights(vector<double> w_init){
+void Perceptron::set_weights(std::vector<double> w_init){
 	weights = w_init;
 }
 
@@ -31,14 +31,14 @@ double Perceptron::sigmoid(double x){
 
 
 // Return a new MultiLayerPerceptron object with the specified parameters.
-MultiLayerPerceptron::MultiLayerPerceptron(vector<int> layers, double bias, double eta) {
+MultiLayerPerceptron::MultiLayerPerceptron(std::vector<int> layers, double bias, double eta) {
     this->layers = layers;
     this->bias = bias;
     this->eta = eta;
 
     for (int i = 0; i < layers.size(); i++){
-        values.push_back(vector<double>(layers[i],0.0));
-        network.push_back(vector<Perceptron>());
+        values.push_back(std::vector<double>(layers[i],0.0));
+        network.push_back(std::vector<Perceptron>());
         if (i > 0)   //network[0] is the input layer, so it has no neurons
             for (int j = 0; j < layers[i]; j++)
                 network[i].push_back(Perceptron(layers[i-1], bias));
