@@ -70,4 +70,5 @@ void MultiLayerPerceptron::print_weights() {
 std::vector<double> MultiLayerPerceptron::run(std::vector<double> x) {
     // Run an input forward through the neural network.
     // x is a vector with the input values.
+    return values.back();
 }
