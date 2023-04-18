@@ -169,11 +169,8 @@ int main(){
         temp = mlp3.run(pattern);
         std::cout << "The pattern recognized by the 7 to 7 network is [";
         for (auto i : temp)
-          std::cout << " " << i;
-        std::cout << "]" << std::endl << std::endl;
+            std::cout << " " << i;
+        std::cout << " ]" << std::endl << std::endl;
     }
     std::cout << std::endl;
 }
-
-
-
