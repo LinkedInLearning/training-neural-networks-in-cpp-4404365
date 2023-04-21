@@ -1,0 +1,4 @@
+C:\dev\ANNs\cpp\Exercise Files\05_05\SDRNN_7to7\Builds\VisualStudio2019\x64\Debug\App\SDRNN_7to7.exe
+C:\dev\ANNs\cpp\Exercise Files\05_05\SDRNN_7to7\Builds\VisualStudio2019\x64\Debug\App\SDRNN_7to7.pdb
+C:\dev\ANNs\cppv2\Exercise Files\05_08\SDRNN_7to7\Builds\VisualStudio2019\x64\Debug\App\SDRNN_7to7.exe
+C:\dev\ANNs\cppv2\Exercise Files\05_08\SDRNN_7to7\Builds\VisualStudio2019\x64\Debug\App\SDRNN_7to7.pdb

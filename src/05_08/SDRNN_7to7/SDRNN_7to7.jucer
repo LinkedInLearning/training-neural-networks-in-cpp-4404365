@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT name="SDRNN_7to7" companyName="JUCE" version="1.0.0" userNotes="Segment Display Recognition Neural Network (7 to 7 model)."
+              companyWebsite="http://juce.com" projectType="guiapp" useAppConfig="0"
+              addUsingNamespaceToJuceHeader="1" id="Xkrqqp" jucerFormatVersion="1">
+  <MAINGROUP id="UIhOkT" name="SDRNN_7to7">
+    <GROUP id="{76462B6A-0521-4649-D41C-C1088BFA414C}" name="Source">
+      <FILE id="nlzIcU" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>
+      <FILE id="WGzArh" name="MLP.cpp" compile="1" resource="0" file="Source/MLP.cpp"/>
+      <FILE id="MefjMe" name="SDRNN_7to7_GUI.h" compile="0" resource="0"
+            file="Source/SDRNN_7to7_GUI.h"/>
+    </GROUP>
+    <GROUP id="Yhf1ML" name="Assets">
+      <FILE id="NYECTL" name="MLP.h" compile="0" resource="0" file="Source/MLP.h"/>
+    </GROUP>
+  </MAINGROUP>
+  <MODULES>
+    <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_events" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+  </MODULES>
+  <EXPORTFORMATS>
+    <XCODE_MAC targetFolder="Builds/MacOSX">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="SDRNN_7to7"/>
+        <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="SDRNN_7to7"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_core" path=""/>
+        <MODULEPATH id="juce_data_structures" path=""/>
+        <MODULEPATH id="juce_events" path=""/>
+        <MODULEPATH id="juce_graphics" path=""/>
+        <MODULEPATH id="juce_gui_basics" path=""/>
+      </MODULEPATHS>
+    </XCODE_MAC>
+    <VS2019 targetFolder="Builds/VisualStudio2019">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="SDRNN_7to7"/>
+        <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="SDRNN_7to7"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_core" path=""/>
+        <MODULEPATH id="juce_data_structures" path=""/>
+        <MODULEPATH id="juce_events" path=""/>
+        <MODULEPATH id="juce_graphics" path=""/>
+        <MODULEPATH id="juce_gui_basics" path=""/>
+      </MODULEPATHS>
+    </VS2019>
+    <LINUX_MAKE targetFolder="Builds/LinuxMakefile">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="SDRNN_7to7"/>
+        <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="SDRNN_7to7"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_core" path=""/>
+        <MODULEPATH id="juce_data_structures" path=""/>
+        <MODULEPATH id="juce_events" path=""/>
+        <MODULEPATH id="juce_graphics" path=""/>
+        <MODULEPATH id="juce_gui_basics" path=""/>
+      </MODULEPATHS>
+    </LINUX_MAKE>
+  </EXPORTFORMATS>
+  <JUCEOPTIONS/>
+  <LIVE_SETTINGS>
+    <WINDOWS buildEnabled="0"/>
+  </LIVE_SETTINGS>
+</JUCERPROJECT>
