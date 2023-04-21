@@ -92,6 +92,7 @@ int main(){
     size_t epochs;
     std::cin >> epochs;
     std::cin.ignore();
+    
     MultiLayerPerceptron mlp1 = MultiLayerPerceptron({7,7,1});
     MultiLayerPerceptron mlp2 = MultiLayerPerceptron({7,7,10});
     MultiLayerPerceptron mlp3 = MultiLayerPerceptron({7,7,7});
@@ -112,7 +113,7 @@ int main(){
         MSE += mlp1.bp({1,1,1,1,0,1,1}, {0.95}); //9 pattern
     }
     MSE /= 10.0;
-    std::cout << std::endl << "7 to 1  network MSE: " << MSE << std::endl;
+    std::cout << std::endl << "7 to 1  network MSE: " << MSE << std::endl << std::endl;
 
 
     // Dataset for the 7 to 10 network
@@ -132,7 +133,7 @@ int main(){
         MSE += mlp2.bp({1,1,1,1,0,1,1}, {0,0,0,0,0,0,0,0,0,1}); //9 pattern
     }
     MSE /= 10.0;
-    std::cout << "7 to 10 network MSE: " << MSE << std::endl;
+    std::cout << "7 to 10 network MSE: " << MSE << std::endl << std::endl;
 
     
     // Dataset for the 7 to 7 network
@@ -154,6 +155,8 @@ int main(){
     MSE /= 10.0;
     std::cout << "7 to 7  network MSE: " << MSE << std::endl << std::endl;
 
+    // Test the Classifiers
+
     std::vector<double> pattern = {1.2};
     while(pattern[0] >= 0.0){
         pattern = read_vector();
@@ -169,7 +172,7 @@ int main(){
         temp = mlp3.run(pattern);
         std::cout << "The pattern recognized by the 7 to 7 network is [";
         for (auto i : temp)
-            std::cout << " " << i;
+            std::cout << " " << int(i + 0.5);
         std::cout << " ]" << std::endl << std::endl;
     }
     std::cout << std::endl;
